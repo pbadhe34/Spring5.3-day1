@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="com.bank.org.Address" name="adr1">
+		<property name="location" value="Satara"></property>
+		<property name="house_number" value="268"></property>
+	</bean>
+	 
+	
+	<bean class="com.bank.org.Address" name="adr2">
+		<property name="location" value="Pune"></property>
+		<property name="house_number" value="984"></property>
+	</bean>
+	<bean class="com.bank.org.Branch" id="br1">
+		<property name="address" ref="adr1"></property>
+		<property name="contact" value="146789"></property>		
+	</bean>
+	
+	
+	<bean class="com.bank.org.Branch" id="br2">
+		<property name="address" ref="adr2"></property>
+		<property name="contact" value="316712"></property>	
+	</bean>
+	
+	
+	<bean class="com.bank.org.Account" id="ac1">
+		<property name="bankLocation" ref="br2"></property>
+		<property name="number" value="234"></property>
+		<property name="balance" value="2345"></property>
+		<property name="id" value="mySelf"></property>
+	</bean>
+	
+	
+	<bean class="com.bank.org.Account" id="ac2">
+		<property name="bankLocation" ref="br2"></property>
+		<property name="number" value="654"></property>
+		<property name="balance" value="999909"></property>
+		<property name="id" value="testAc"></property>
+	</bean>
+	<bean class="com.bank.org.User" id="userFirst">
+		<property name="user_account" ref="ac2"></property>
+		<property name="user_address" ref="adr1"></property>
+	</bean>
+	
+	<bean class="com.bank.org.User" id="userSecond">
+		<property name="user_account" ref="ac1"></property>
+		<property name="user_address" ref="adr1"></property>
+	</bean>
+</beans>

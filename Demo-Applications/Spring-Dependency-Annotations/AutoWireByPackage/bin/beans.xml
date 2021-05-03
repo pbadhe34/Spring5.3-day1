@@ -1,0 +1,69 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<!--To enable the stero type annotation to be scanned and configured
+ when they are scanned by DI container of spring framework. 
+ To enable this scanning, use “context:component-scan” tag in config.xml
+  file.  
+  The context:component-scan element requires a base-package attribute, 
+  which, as its name suggests, specifies a starting point for a recursive component search.
+  You may not want to give the top package for scanning to spring, so  should declare
+   three component-scan elements, each with a base-package attribute pointing to a 
+   different package.
+When component-scan is declared, no longer need to declare context:annotation-config,
+ because autowiring is implicitly enabled when component scanning is enabled.
+  
+  <context:component-scan base-package="com.server.demo.service" />
+<context:component-scan base-package="com.server.demo.dao" />
+<context:component-scan base-package="com.server.demo.controller" />
+  
+   -->
+ 
+ <context:component-scan base-package="com.app">
+ <!--
+
+ The component scanning feature can automatically scan, detect,
+and instantiate your components from the classpath. By default, Spring is able to detect all
+components with a stereotype annotation
+
+-->
+
+         <!--<context:include-filter type="regex"
+            expression="user\...*Manager.*" />         
+            
+            <context:exclude-filter type="regex"
+             expression="user\..*Assistant.*" />
+            
+             These components will be instantiated because we include them here in xml 
+            <context:include-filter type="regex"
+            expression="user\..*Group.*" />
+            
+            <context:include-filter type="regex"
+            expression="user\..*Worker.*" />
+            
+          
+        <context:exclude-filter type="annotation"
+            expression="org.springframework.stereotype.Controller" />
+            
+         -->
+         
+         <!-- <context:exclude-filter type="regex"
+             expression="user\..*Assistant.*" /> -->
+         
+   </context:component-scan>
+         
+        <bean id="StringBean" class="java.lang.String">
+        <constructor-arg>
+            <value>Soha</value>
+        </constructor-arg>
+    </bean>       
+         
+         
+
+</beans>

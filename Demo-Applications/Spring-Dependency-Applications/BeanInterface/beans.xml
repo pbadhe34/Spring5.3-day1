@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Register the bean post Processor -->
+    <bean id="customPostProcessor" class="CustomBeanPostProcessor" />
+<!--if the bean class implements InitializingBean init method is by default called-->
+
+    <bean id="beanObj" class="MyBean">
+	<!--No Destroy or init method is specified here-->
+        <property name="filePath">
+            <value>user.txt</value>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- Property Injection -->
+    <bean id="obj1" class="com.app.MyClass">
+         <property name="someValue" value="AnyBody Can Dance"></property>
+         <property name="data" value="1234"></property>
+    </bean>
+	<bean id="obj2" class="com.app.MyClass">        
+         <property name="data" value="34"></property>
+         <property name="someValue" value="Sushil is Here"></property>
+         <property name="accounting" ref="bankingBean"></property>
+    </bean> 
+    <bean id = "bankingBean" class="org.bank.data.BankAccount">
+    <property name="interestRate" value="11"></property>
+     </bean>
+            
+</beans>

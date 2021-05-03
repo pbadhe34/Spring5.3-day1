@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+	
+<aop:aspectj-autoproxy/>
+<!-- The <aop:aspectj-autoproxy> element tells Spring to watch 
+for beans annotated with AspectJ annotations and, 
+if it finds any, to use them to create aspects. -->
+
+<bean id="myBean" class="com.server.User">
+         
+ </bean>
+
+
+</beans>

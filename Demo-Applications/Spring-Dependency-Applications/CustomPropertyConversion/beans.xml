@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">	 
+	
+    <bean name="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="java.util.regex.Pattern">                  
+                  <value>com.app.PatternPropertyEditor</value>
+                </entry>
+				<entry key="java.util.Date">
+				   <value>com.app.DatePropertyEditor</value>                    
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="CustomBean" class="TestCustomEditor">
+        <property name="searchPattern">
+            <value>(dog|fox)</value><!--fox,dog-fox,dog|fox-->
+        </property>
+        <property name="textToSearch">
+            <value>The quick brown fox jumped over the lazy dog and fox returned.</value>
+        </property>
+		<property name="myDate"><!--"M/d/yy"-->
+            <value>3/5/08</value>
+        </property>
+    </bean>
+</beans>
+
+
+

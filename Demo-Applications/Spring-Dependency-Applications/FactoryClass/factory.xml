@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">	 
+	
+	<!-- the bean to be created via the factory bean instance method -->
+    <bean id="factoryClassBean" class="MyFactory" factory-method="createBeanObject" scope="singleton"/>
+
+	<bean id="beanObject" class="MyClass">
+	   <property name="bean">
+            <ref bean="factoryClassBean"/>
+        </property>
+	</bean>
+
+
+ 
+</beans>

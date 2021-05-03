@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring-dependencies"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring-Libs"/>
+	<classpathentry kind="lib" path="D:/spring-5.3.1-dist/spring-framework-5.3.1/libs/spring-test-5.3.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="D:/Spring-Framework-Introduction/Installations/Mock-lib-Jars/byte-buddy-1.10.13.jar"/>
+	<classpathentry kind="lib" path="D:/Spring-Framework-Introduction/Installations/Mock-lib-Jars/byte-buddy-agent-1.10.13.jar"/>
+	<classpathentry kind="lib" path="D:/Spring-Framework-Introduction/Installations/Mock-lib-Jars/mockito-core-3.4.3.jar"/>
+	<classpathentry kind="lib" path="D:/Spring-Framework-Introduction/Installations/Mock-lib-Jars/mockito-inline-3.4.4.jar"/>
+	<classpathentry kind="lib" path="D:/Spring-Framework-Introduction/Installations/Mock-lib-Jars/mockito-junit-jupiter-3.3.3.jar"/>
+	<classpathentry kind="lib" path="D:/Spring-Framework-Introduction/Installations/Mock-lib-Jars/objenesis-2.6.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

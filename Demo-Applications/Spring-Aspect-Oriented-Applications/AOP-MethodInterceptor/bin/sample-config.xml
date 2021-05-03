@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+   <!-- DEFINE THE POINTCUT ADVISOR TO INTERCEPT ON GETTER METHODS -->
+  <bean id="advisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+    <property name="advice">
+      <ref bean="InterceptorAdvice"/>
+    </property>
+    <!-- SPECIFY PATTERN TO INTERCEPT ONLY ON "getter" METHODS -->
+    <property name="pattern">
+      <value>.*(\.get).*</value>
+    </property>
+  </bean>
+
+ <!-- DEFINE THE METHOD INTERCEPTOR ADVICE--> 
+  <bean id="InterceptorAdvice" class="SampleMethodInterceptor">
+    <property name="enableCall">
+      <value>true</value>
+    </property>     
+  </bean>
+
+  <!-- DEFINITION OF  SAMPLE INTERFACE -->
+  <bean id="sampleInterfaceImpl" class="SampleInterfaceImpl"/>
+
+  <!-- DEFINITION OF SAMPLE INTERFACE WITH INTERCEPTOR WEAVED IN -->
+  <!--Bean Definition of AOP Container-->
+  <bean id="sampleInterfaceWithInterceptor" class="org.springframework.aop.framework.ProxyFactoryBean">
+    <property name="proxyInterfaces">
+      <value>SampleInterface</value>
+    </property>
+    <!-- DEFINE THE TARGET OF THE PROXY -->
+    <property name="target">
+      <ref bean="sampleInterfaceImpl"/>
+    </property>
+    <!-- WIRE IN OUR INTERCEPTOR WITH ADVICE-->
+    <property name="interceptorNames">
+      <list>
+        <value>advisor</value><!--Advisor-->
+		<!--value>Second_Advisor</value-->
+      </list>
+    </property>
+  </bean>
+</beans>

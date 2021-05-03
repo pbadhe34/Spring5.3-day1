@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byType">
+
+
+
+	<bean id="foo" class="Foo" />
+	<bean id="bar" class="Bar" />	
+	
+	<!-- Multiple matching beans: Error if enabled--> 
+	<!-- <bean id="foo" class="Foo"/> -->
+	<!-- <bean name="barObj" class="Bar" />	 -->	
+	
+
+	<bean id="beanByName" autowire="byName" class="Target" />
+	<bean id="beanByType" autowire="byType" class="Target" />
+	<bean id="beanByConstructor" autowire="constructor" class="Target" />
+	<bean id="beanByDefault" autowire="default" class="Target" />
+</beans>
+

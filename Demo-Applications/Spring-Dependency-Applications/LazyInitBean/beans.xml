@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="Bean" class="DestructiveBean">
+	<!--Try making lazy-init="false" for this bean-->
+        <property name="filePath">
+            <value>user.txt</value>
+        </property>
+    </bean>
+    
+    <bean id="testBean" class="TestBean">	<!-- The default is lazy-init="false" --> 
+        <property name="filePath">
+            <value>user.txt</value>
+        </property>
+    </bean>
+     
+</beans>
+

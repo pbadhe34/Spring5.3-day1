@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+		
+	<bean id="businessClass" class="com.spring.business.BusinessClass">
+	</bean>
+
+	<bean id="loggingAspect" class="com.spring.aop.LoggingAspect" />
+	<bean id="loggingAspect1" class="com.spring.aop.LogginAspectAnnotationDriven" />
+	
+	<aop:aspectj-autoproxy />
+	<aop:config>
+		<aop:aspect ref="loggingAspect" order="1">
+			<aop:pointcut id="logPointCut" expression="execution(public * *(..))" />
+			<!-- <aop:around pointcut-ref="logPointCut" method="trace" /> -->
+			<aop:after pointcut-ref="logPointCut" method="log" />
+			<aop:after-returning pointcut-ref="logPointCut" method="update" />
+			<aop:before pointcut-ref="logPointCut" method="prepare" />
+			<aop:after-throwing pointcut-ref="logPointCut" method="readError" /> 
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">	 
+    
+    <!-- oracle bean used for a few examples -->
+    <bean id="oracleBean" name="wiseworm" class="BookwormOracle"/>
+
+    <!-- collection injection samples -->
+    <bean id="injectedBean" class="CollectionInjectionBean">
+        <property name="map">
+            <map>
+                <entry key="someValue">
+                    <value>Hello World!</value>
+                </entry>
+                <entry key="someBean">
+                    <ref bean="oracleBean"/>
+                </entry>
+                <entry key="testData">
+                    <value>23456</value>
+                </entry>
+                <entry key="flag">
+                    <value>false</value>
+                </entry>
+            </map>
+        </property>
+        <property name="props">
+            <props>
+                <prop key="firstName"> Rony </prop>
+                <prop key="secondName"> Dummy </prop>
+            </props>
+        </property>
+        <property name="set">
+            <set>
+                <value>BeanSet</value>
+                <ref bean="oracleBean"/>
+              <set>
+                 <value>MyBean</value>
+                 <null></null>
+               </set>
+            </set>
+        </property>
+        <property name="list">
+            <list>
+                <value>dataBean</value>
+                <ref bean="oracleBean"/>
+                <bean id="child" class="BookwormOracle">
+                  <!-- <property name=""></property>
+                   <constructor-arg></constructor-arg>      -->           
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">	 
+	
+    <bean id="propBean" class="UsingPropertyEditors">
+	<!--all these property values are converted to their respective types by
+    inbuilt property editors supported by Spring-->
+
+        <property name="class">
+            <value>java.lang.String</value>
+        </property>
+        <property name="file">
+            <value>D:/user.txt</value>
+        </property>
+        <property name="locale">
+            <value>en</value>
+        </property>
+        <property name="url">
+            <value>http://www.server.org</value>
+        </property>
+        <property name="properties">
+            <value> 
+                name=foo 
+                age=19 
+            </value>
+        </property>
+        <property name="strings">
+            <value>rob,jan,rod,jurgen,alef</value>
+        </property>
+        <property name="bytes">
+            <value>Hello World</value>
+        </property>
+    </bean>
+</beans>
+
+

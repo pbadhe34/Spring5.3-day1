@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Register the bean post Processor -->
+    <!-- <bean id="customPostProcessor" class="CustomBeanPostProcessor" /> -->
+    
+    <bean id="simpleBean1" class="SimpleBean" init-method="initBean" destroy-method="MyDestroyMethod">
+        <property name="name">
+            <value>Deo Moria</value>
+        </property>
+        <property name="age">
+            <value>100</value>
+        </property>
+    </bean>
+    <bean id="simpleBean2" class="SimpleBean" init-method="initBean" destroy-method="MyDestroyMethod">
+        <property name="age">
+            <value>44</value><!-- Try negative age value -->
+        </property>
+    </bean>
+    <bean id="simpleBean3" class="SimpleBean" init-method="initBean" destroy-method="MyDestroyMethod">
+        <!-- <property name="name">
+            <value>John Khan</value>
+        </property> -->
+		<property name="age">
+            <value>101</value>
+        </property>
+    </bean>
+</beans>

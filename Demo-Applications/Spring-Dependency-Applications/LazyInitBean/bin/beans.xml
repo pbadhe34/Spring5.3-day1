@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- default-lazy-init="true"> -->
+
+
+    <bean id="lzBean" class="LazyBean" lazy-init="true">
+	<!--Try making lazy-init="false" for this bean-->
+        <property name="filePath">
+            <value>test2.txt</value>
+        </property>
+    </bean>
+    
+    <bean id="pojo" class="PojoBean">	 
+        <property name="filePath">
+            <value>user1.txt</value>
+        </property>
+    </bean>
+     
+</beans>
+

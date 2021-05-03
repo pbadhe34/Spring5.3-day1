@@ -1,0 +1,34 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd" profile="data">
+
+ 
+ <beans profile="dev">
+    <bean id="id1" class="com.server.MyBeanClass" >
+    <property name="name" value="DevUser"></property>   
+   </bean>
+   
+   </beans>
+  <beans profile="test">
+    <bean id="id1" class="com.server.MyBeanClass" >
+  <property name="name" value="DataMyQA"></property>  
+ </bean>
+  </beans>
+  
+   
+   
+    <beans profile="prod">
+     <bean id="id1" class="com.server.MyBeanClass" >
+       <property name="name" value="ReleaseApp"></property>  
+     </bean>
+  </beans> 
+
+ 
+
+ 
+
+</beans>

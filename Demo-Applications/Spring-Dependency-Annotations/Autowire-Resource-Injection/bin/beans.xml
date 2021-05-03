@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+
+ <!-- To enable the component scanning  -->
+ <context:annotation-config >  
+   <context:component-scan base-package="com.app"></context:component-scan>
+  <!--  <default-autowire-candidates>handlerDefault</default-autowire-candidates> -->
+ </context:annotation-config>  
+ 
+<bean id="id1" class="com.app.MyClass" >
+  <property name="number" value="23"></property>
+  <property name="name" value="John"></property>   
+</bean>
+
+<!-- Auto wire by type -->
+<bean id="HandlerBeanType" class="com.app.Handler" scope="singleton">
+<property name="name" value="BOSS By Type"></property>
+</bean>
+
+<!-- Auto wire by name -->
+<bean id="handleBean" class="com.app.Handler" scope="singleton">
+ <property name="name" value="JAZZ By name"></property>
+</bean>
+
+<!-- Resource injection by name -->
+<bean name="resourceInjectionBean" class="com.app.Handler" scope="prototype">
+ <property name="name" value="MyResource"></property>
+</bean>
+
+
+</beans>

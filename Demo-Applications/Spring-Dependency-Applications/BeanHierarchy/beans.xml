@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- hierarchical bean factories -->
+    <bean id="target1" class="SimpleTargetBean">
+        <property name="val">
+            <ref bean="injectBeanParent"/>
+        </property>
+    </bean>
+    
+    <bean id="target2" class="SimpleTargetBean">
+        <property name="val">
+            <ref bean="injectBean"/>
+        </property>
+    </bean>
+    
+    <bean id="target3" class="SimpleTargetBean">
+        <property name="val">
+            <ref parent="injectBean"/>
+        </property>
+    </bean>
+    
+    <bean id="injectBean" class="java.lang.String">
+           <constructor-arg>
+               <value>Bean In Child</value>
+           </constructor-arg>
+    </bean>
+</beans>
+

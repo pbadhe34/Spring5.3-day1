@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- ctor Injection -->
+    <bean id="obj1" class="BeanClass">
+        <constructor-arg type="int">
+            <value>90</value>
+        </constructor-arg>
+    </bean>
+	<bean id="obj2" class="BeanClass">
+        <constructor-arg type="java.lang.String">
+            <value>90</value>
+        </constructor-arg>
+    </bean>
+	<bean id="obj3" class="BeanClass">
+       <constructor-arg index="0" type="java.lang.String" value="Sushil"/>
+	   <constructor-arg index="1" type="int" value="101"/>		 
+    </bean>
+	<bean id="obj4" class="BeanClass">
+       <constructor-arg type="java.lang.String" value="Godha"/>
+	   <constructor-arg type="int" value="103"/>		 
+    </bean>
+	<bean id="obj5" class="BeanClass">
+       <constructor-arg type="java.lang.String">
+	   <!--specify correct type with package-->
+            <value>100</value><!--specify correct value-->
+        </constructor-arg>
+	  <constructor-arg type="int">
+            <value>we</value><!--specify correct value-->
+        </constructor-arg>	 
+    </bean>
+	<bean id="obj6" class="BeanClass">
+	 <!-- Combine the setter and constructor injection-->
+	    <property name="someValue">
+            <value>DON DCosta</value>
+        </property>
+       <constructor-arg type="int">
+            <value>512</value>
+        </constructor-arg>		
+    </bean>
+</beans>

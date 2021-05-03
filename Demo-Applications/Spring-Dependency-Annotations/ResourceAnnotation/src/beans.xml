@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+<!--<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" /> 
+
+ -->
+ <context:annotation-config /> 
+ 
+
+<!--<bean id="id1" class="com.user.MyClass" dependency-check="objects">
+-->
+<bean id="id1" class="com.user.MyClass" >
+  <property name="number" value="23"></property>
+  <property name="name" value="John"></property>   
+ 
+</bean>
+<bean id="HandlerBean2" class="com.user.Handler" scope="singleton">
+<property name="name" value="Second Handler Now"></property>
+</bean>
+<bean id="HandlerBean" class="com.user.Handler" scope="singleton">
+  <property name="name" value="Handler Bean"></property>
+</bean>
+<bean id="handle" class="com.user.Handler" scope="singleton">
+ <property name="name" value="HandleIt Now"></property>
+</bean>
+
+</beans>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--No dependency on DbDao class
+	Just to ensure initilaization of DbDao before it -->
+	
+    <bean id="dependentBean" class="SimpleBean" depends-on="dbBean">
+        <property name="someInt">
+            <value>16</value>
+        </property>
+		<property name="nestedSimpleBean">
+            <ref bean="myBean"/><!-- id or name -->
+        </property>
+    </bean>  
+    
+    <bean id="noDependBean" class="SimpleBean">
+        <property name="someInt">
+            <value>16</value>
+        </property>
+		<property name="nestedSimpleBean">
+            <ref bean="myBean"/><!-- id or name -->
+        </property>
+    </bean>  
+    
+     
+     
+    
+     <bean id="nestedBean" name="myBean" class="SimpleBean"/>
+     <bean id="driver" class="com.db.MyDriver"/>
+     
+     <bean id="dbBean" class="com.server.DbDao">
+      <property name="dbDriver">
+        <ref bean="driver"/>
+      </property>
+    </bean>  
+    
+</beans>
+
+
+

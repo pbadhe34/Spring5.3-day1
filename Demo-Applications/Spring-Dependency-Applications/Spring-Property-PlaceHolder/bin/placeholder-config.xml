@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:c="http://www.springframework.org/schema/c"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+  <context:property-placeholder
+    location="com/data/sound/app.properties" />
+
+
+  <!-- <bean class="com.data.sound.BlankDisc"
+    c:_0 = "Ashok raja"
+    c:_1 = "${disc.artist}"/> -->
+    
+    <bean class="com.data.sound.BlankDisc">
+     <!-- <property name="title" value="${disc.title}" />
+     <property name="artist" value="${disc.artist}" /> --><!-- Load from app.propertis and add it here -->   
+     <property name="title" value="#{cdBean.title}" />  
+     <property name="artist" value="#{cdBean.artist}" /><!-- LOad from another bean -->
+    </bean>
+    
+    <bean id="cdBean" class="com.data.sound.CompactDisc">
+		<property name="title" value="Tips-Bhajan" />
+		<property name="artist" value="Top Ten" />		 
+	</bean>
+    
+    
+    
+    
+
+</beans>
